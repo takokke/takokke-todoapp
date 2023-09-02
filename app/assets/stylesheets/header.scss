@@ -1,0 +1,13 @@
+@import '_variables';
+
+.header {
+  padding-bottom: 16px;
+  border-bottom: 1px rgba(0, 0, 0,0.1) solid;
+  height: $header-height;
+  &_title {
+    font-weight: normal;
+    font-size: $font-sm;
+    padding-top: 17px;
+    padding-left: 30px;
+  }
+}
