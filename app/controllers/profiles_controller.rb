@@ -6,16 +6,19 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    # if current_user.profile.present?
-    #   @profile = current_user.profile
-    # else
-    #   @profile = current_user.build_profile
-    # end
-    @profile = current_user.prepare_profile
+    if current_user.profile.present?
+      @profile = current_user.profile
+    else
+      @profile = current_user.build_profile
+    end
   end
 
   def update
-    @profile = current_user.prepare_profile
+    if current_user.profile.present?
+      @profile = current_user.profile
+    else
+      @profile = current_user.build_profile
+    end
     @profile.assign_attributes(profile_params)
     if @profile.save
       redirect_to profile_path, notice: '更新できました'

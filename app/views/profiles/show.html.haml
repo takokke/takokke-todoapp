@@ -5,7 +5,7 @@
   .profile_user_basicInfo
     .profile_user_name
       .profile_user_displayName
-        %p= current_user.display_name
+        #{current_user.display_name} (#{current_user.profile.gender})
       .profile_user_action
         = link_to 'Edit', edit_profile_path
     .profile_user_introduction
