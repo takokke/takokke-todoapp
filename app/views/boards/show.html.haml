@@ -1,0 +1,11 @@
+.card
+  .card_main
+    .card_main_content
+      .card_main_content_title= @board.name
+      .card_main_content_description= @board.description
+    .dropdown
+      = image_tag 'actions.svg', class: 'dropbtn'
+      .dropdown-content
+        = link_to 'Delete', board_path(id: @board.id), data: { method: 'delete', confirm: '本当に削除していいですか？' }
+  .card_detail
+    = image_tag 'default-avatar.png'
