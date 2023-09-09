@@ -1,0 +1,13 @@
+%h2.page-title All Boards
+
+- @boards.each do |board|
+  = link_to board_path(id: board.id) do
+    .card
+      .card_main_content
+        .card_main_content_title= board.name
+        .card_main_content_description= board.description
+      .card_detail
+        = image_tag 'default-avatar.png'
+= link_to new_board_path do
+  .card_add
+    %p + Add new board

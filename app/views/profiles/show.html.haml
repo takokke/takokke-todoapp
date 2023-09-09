@@ -1,0 +1,21 @@
+%h2.page-title Profile
+.profile_user
+  .profile_user_image
+    = image_tag 'default-avatar.png'
+  .profile_user_basicInfo
+    .profile_user_name
+      .profile_user_displayName
+        %p= current_user.display_name
+      .profile_user_action
+        = link_to 'Edit', edit_profile_path
+    .profile_user_introduction
+      %p Hello World!
+
+- current_user.boards.each do |board|
+  = link_to board_path(id: board.id) do
+    .card
+      .card_main_content
+        .card_main_content_title= board.name
+        .card_main_content_description= board.description
+      .card_detail
+        = image_tag 'default-avatar.png'
