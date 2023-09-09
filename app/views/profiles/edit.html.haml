@@ -15,3 +15,5 @@
     = f.label :gender, '性別'
   %div
     = f.select(:gender, Profile.genders.keys, {}, { class: 'text' })
+  %div
+    = f.submit "Save", class: 'btn-submit'
