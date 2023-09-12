@@ -34,7 +34,8 @@ class ProfilesController < ApplicationController
     params.require(:profile).permit(
       :nickname,
       :introduction,
-      :gender
+      :gender,
+      :avatar
     )
   end
 

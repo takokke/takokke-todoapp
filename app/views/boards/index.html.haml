@@ -7,7 +7,7 @@
         .card_main_content_title= board.name
         .card_main_content_description= board.description
       .card_detail
-        = image_tag 'default-avatar.png'
+        = image_tag board.user.profile.avatar_image
 = link_to new_board_path do
   .card_add
     %p + Add new board

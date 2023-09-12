@@ -1,13 +1,73 @@
 @import '_variables';
 
 .header {
-  padding-bottom: 16px;
   border-bottom: 1px rgba(0, 0, 0,0.1) solid;
   height: $header-height;
+  display: flex;
+  justify-content: space-between;
+
+  &_left {
+    display: flex;
+    align-items: flex-end;
+    padding-left: 30px;
+    margin-bottom: 16px;
+  }
+  &_back {
+    background-color: $primary-color;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+  }
+
+  &_arrow {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+  }
+
+  &_arrow::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-top: solid 2px #000;
+    border-right: solid 2px #000;
+    position: absolute;
+    left: 10px;
+    top: 8px;
+  }
+
+  &_arrow::before {
+    transform: rotate(-135deg);
+  }
+
+  &_arrow-left::before {
+    transform: rotate(-135deg);
+  }
+
   &_title {
     font-weight: normal;
     font-size: $font-sm;
     padding-top: 17px;
-    padding-left: 30px;
+  }
+
+  &_right {
+    padding-right: 30px;
+    display: flex;
+    align-items: center;
+  }
+
+  &_loginbtn {
+    background-color: $primary-color;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  &_avatar {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
   }
 }
