@@ -10,7 +10,25 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
   %body
     %header.header
-      %h1.header_title Boards
+      .header_left
+        - if !current_page?(root_path)
+          = link_to :back do
+            .header_arrow.header_arrow-left
+            %br
+        - if current_page?(root_path)
+          %h1.header_title Boards
+        - else
+          = link_to root_path do
+            %h1.header_title Boards
+      .header_right
+        - if user_signed_in?
+          .dropdown
+            = image_tag current_user.profile.avatar_image, class: 'header_avatar dropbtn'
+            .dropdown-content
+              = link_to 'Profile', profile_path, data: { method: 'get' }
+              = link_to 'Logout', destroy_user_session_path, data: { method: 'delete' }
+        - else
+          = link_to 'Login', new_user_session_path, data: { method: 'get'}, class: 'header_loginbtn'
     - if flash.present?
       .flash
         - flash.each do |key, value|

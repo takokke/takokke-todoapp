@@ -1,11 +1,11 @@
 %h2.page-title Profile
 .profile_user
   .profile_user_image
-    = image_tag 'default-avatar.png'
+    = image_tag current_user.profile.avatar_image
   .profile_user_basicInfo
     .profile_user_name
       .profile_user_displayName
-        #{current_user.display_name} (#{current_user.profile.gender})
+        #{current_user.display_name} (#{I18n.t("enum.genders.#{current_user.profile.gender}")})
       .profile_user_action
         = link_to 'Edit', edit_profile_path
     .profile_user_introduction
@@ -18,4 +18,4 @@
         .card_main_content_title= board.name
         .card_main_content_description= board.description
       .card_detail
-        = image_tag 'default-avatar.png'
+        = image_tag board.user.profile.avatar_image
