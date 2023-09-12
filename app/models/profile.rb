@@ -20,7 +20,7 @@ class Profile < ApplicationRecord
   has_one_attached :avatar
 
   def avatar_image
-    if self&.avatar.attached?
+    if self&.avatar&.attached?
       self.avatar
     else
       'default-avatar.png'

@@ -28,4 +28,20 @@ class User < ApplicationRecord
   def display_name
     profile&.nickname || self.email.split('@')[0]
   end
+
+  def display_gender
+    profile&.gender
+  end
+
+  def display_introduction
+    profile&.introduction
+  end
+
+  def avatar_image
+    if self.profile&.avatar&.attached?
+      self.profile.avatar
+    else
+      'default-avatar.png'
+    end
+  end
 end

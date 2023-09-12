@@ -23,7 +23,7 @@
       .header_right
         - if user_signed_in?
           .dropdown
-            = image_tag current_user.profile.avatar_image, class: 'header_avatar dropbtn'
+            = image_tag current_user.avatar_image, class: 'header_avatar dropbtn'
             .dropdown-content
               = link_to 'Profile', profile_path, data: { method: 'get' }
               = link_to 'Logout', destroy_user_session_path, data: { method: 'delete' }

@@ -8,4 +8,4 @@
       .dropdown-content
         = link_to 'Delete', board_path(id: @board.id), data: { method: 'delete', confirm: '本当に削除していいですか？' }
   .card_detail
-    = image_tag @board.user.profile.avatar_image
+    = image_tag @board.user.avatar_image
