@@ -1,0 +1,17 @@
+%h2.page-title Edit Board
+
+%ul
+  - @board.errors.full_messages.each do |message|
+    %li= message
+
+= form_with(model: @board, local:true) do |f|
+  %div
+    = f.label :name, "Name"
+  %div
+    = f.text_field :name, class: 'text'
+  %div
+    = f.label :description, 'Description'
+  %div
+    = f.text_area :description
+  %div
+    = f.submit "Submit", class: 'btn-submit'
