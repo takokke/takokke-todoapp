@@ -3,5 +3,11 @@
     .card_main_content
       .card_main_content_title= board.name
       .card_main_content_description= board.description
+    - if board.user == current_user
+      .dropdown
+        = image_tag 'actions.svg', class: 'dropbtn'
+        .dropdown-content
+          = link_to 'Edit', edit_board_path(id: board.id), data: { method: 'get' }
+          = link_to 'Delete', board_path(id: board.id), data: { method: 'delete', confirm: '本当に削除していいですか？' }
   .card_detail
     = image_tag board.user.avatar_image

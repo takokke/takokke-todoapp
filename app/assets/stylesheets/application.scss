@@ -38,12 +38,7 @@ a {
 }
 
 .container {
-  margin: auto;
+  margin: 0 auto;
   max-width: $max-width;
   padding: 17px 30px;
-
-  @include mq {
-    height: 840px - $header-height;
-    position: relative;
-  }
 }

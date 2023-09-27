@@ -19,6 +19,7 @@
 #
 class Board < ApplicationRecord
   belongs_to :user
+  has_many :tasks, dependent: :destroy
 
   #バリデーションチェック
   validates :name, presence: true
