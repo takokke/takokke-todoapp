@@ -1,0 +1,25 @@
+%h2.page-title New Card
+
+%ul
+  - @task.errors.full_messages.each do |message|
+    %li= message
+
+= form_with(model: @task, url: board_tasks_path(@task.board), method: 'post', local: true) do |f|
+  %div
+    = f.label :eyecatch, 'Eyecatch'
+  %div
+    = f.file_field :eyecatch
+  %div
+    = f.label :title, 'Name'
+  %div
+    = f.text_field :title, class: 'text'
+  %div
+    = f.label :content, 'description'
+  %div
+    = f.text_area :content
+  %div
+    = f.label :deadline
+  %div
+    =f.date_field :deadline, class: 'text'
+  %div
+    = f.submit "Save", class: 'btn-submit'
